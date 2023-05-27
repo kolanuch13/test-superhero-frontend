@@ -1,0 +1,1 @@
+export const getSuperheroesList = state => state.superhero.superheroesList;
