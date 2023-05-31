@@ -1,0 +1,29 @@
+.flatImage {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.imageLabel {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 105px 146px;
+  background-color: #1F2534;
+  border-radius: 16px;
+  margin-bottom: 64px;
+
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  object-fit: cover;
+}

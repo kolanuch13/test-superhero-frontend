@@ -1,0 +1,52 @@
+.overlay {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 1500ms linear;
+}
+
+.modal {
+  width: 500px;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: 'Montserrat', monospace;
+  font-weight: 300;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid black;
+}
+
+.modalHeading {
+  font-size: 40px;
+}
+
+button {
+  display: flex;
+  background: none;
+  border: none;
+  outline: none;
+  align-items: center;
+}
+
+input {
+  font-size: 25px;
+}
+
+label {
+  font-size: 25px;
+}

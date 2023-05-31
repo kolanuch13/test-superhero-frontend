@@ -1,14 +1,14 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import {superheroApi} from './service'
+import { superheroApi } from './service'
 const serverUrl = 'http://localhost:4000/api/superheroes';
+
 
 axios.defaults.baseURL = serverUrl;
 
 export const getSuperheroes = createAsyncThunk(
   'superheroes/get',
   async (data, thunkAPI) => {
-    console.log(data);
     try {
       const response = await superheroApi.getSuperheroesList(data[0], data[1]);
       return response.data;
@@ -20,7 +20,7 @@ export const getSuperheroes = createAsyncThunk(
 
 export const getOneSuperhero = createAsyncThunk(
   'superheroes/getOne',
-  async ({ id }, thunkAPI) => {
+  async ( id , thunkAPI) => {
     try {
       const response = await superheroApi.getOneSuperhero(id);
       return response.data;
@@ -30,9 +30,9 @@ export const getOneSuperhero = createAsyncThunk(
   }
 );
 
-export const addSuperheroe = createAsyncThunk(
+export const addSuperhero = createAsyncThunk(
   'superheroes/add',
-  async ({hero}, thunkAPI) => {
+  async (hero, thunkAPI) => {
     try {
       const response = await superheroApi.addSuperhero(hero);
       return response.data;
@@ -42,11 +42,11 @@ export const addSuperheroe = createAsyncThunk(
   }
 );
 
-export const editSuperheroe = createAsyncThunk(
+export const editSuperhero = createAsyncThunk(
   'superheroes/edit',
-  async ({ id, hero }, thunkAPI) => {
+  async (obj, thunkAPI) => {
     try {
-      const response = await superheroApi.editSuperhero(id, hero);
+      const response = await superheroApi.editSuperhero(obj.heroForm, obj.id);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -56,7 +56,7 @@ export const editSuperheroe = createAsyncThunk(
 
 export const removeSuperhero = createAsyncThunk(
   'superheroes/remove',
-  async ({ id }, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
       const response = await superheroApi.removeSuperhero(id);
       return response.data;
@@ -66,12 +66,25 @@ export const removeSuperhero = createAsyncThunk(
   }
 );
 
+export const addNewImage = createAsyncThunk(
+  'superheroes/addImage',
+  async (obj, thunkAPI) => {
+    try {
+      const { response } = await superheroApi.addImage(obj.formData, obj.id);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const superheroOperations = {
   getSuperheroes,
   getOneSuperhero,
-  addSuperheroe,
-  editSuperheroe,
+  addSuperhero,
+  editSuperhero,
   removeSuperhero,
+  addNewImage,
 };
 
 export default superheroOperations;

@@ -1,0 +1,43 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  background: none;
+  transition: background 1500ms linear;
+}
+
+.image {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: width, height 1500ms linear;
+}
+
+.name {
+  color: white;
+  font-family: 'Montserrat', monospace;
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.nameWrapper {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper:hover .nameWrapper {
+  display: flex;
+}
+
+.wrapper:hover .image {
+    width: 100%;
+    height: 100%;
+}

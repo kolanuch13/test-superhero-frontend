@@ -2,15 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import superheroOperations from './operations';
 
 const initialState = {
-  superhero: {
-    nickname: null,
-    realName: null,
-    originDescription: null,
-    superpowers: null,
-    catchPhrase: null,
-    images: null,
-  },
-  superheroesList: null,
+  hero: null,
+  superheroesList: [],
+  isLoading: false,
+  error: null
 };
 
 const superheroSlice = createSlice({
@@ -22,7 +17,8 @@ const superheroSlice = createSlice({
       .addCase(superheroOperations.getSuperheroes.pending, (state, _) => {
         state.isLoading = true;
       })
-      .addCase(superheroOperations.getSuperheroes.fulfilled,
+      .addCase(
+        superheroOperations.getSuperheroes.fulfilled,
         (state, action) => {
           state.superheroesList = action.payload.result;
           state.isLoading = false;
@@ -36,42 +32,41 @@ const superheroSlice = createSlice({
       .addCase(superheroOperations.getOneSuperhero.pending, state => {
         state.isLoading = true;
       })
-      .addCase(superheroOperations.getOneSuperhero.fulfilled,
+      .addCase(
+        superheroOperations.getOneSuperhero.fulfilled,
         (state, action) => {
-          state.nickname = action.payload.nickname;
-          state.realName = action.payload.realName;
-          state.originDescription = action.payload.originDescription;
-          state.superpowers = action.payload.superpowers;
-          state.catchPhrase = action.payload.catchPhrase;
-          state.images = action.payload.images;
+          state.hero = action.payload;
           state.isLoading = false;
         }
       )
-      .addCase(superheroOperations.getOneSuperhero.rejected,
+      .addCase(
+        superheroOperations.getOneSuperhero.rejected,
         (state, action) => {
           state.error = action.payload;
           state.isLoading = false;
         }
       )
       // Superhero/addSuperhero===============================================
-      .addCase(superheroOperations.addSuperheroe.pending, state => {
+      .addCase(superheroOperations.addSuperhero.pending, state => {
         state.isLoading = true;
       })
-      .addCase(superheroOperations.addSuperheroe.fulfilled, state => {
+      .addCase(superheroOperations.addSuperhero.fulfilled, (state, action) => {
+        state.superheroesList.push(action.payload);
         state.isLoading = false;
       })
-      .addCase(superheroOperations.addSuperheroe.rejected, (state, action) => {
+      .addCase(superheroOperations.addSuperhero.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
       })
       // Superhero/editSuperheroe===============================================
-      .addCase(superheroOperations.editSuperheroe.pending, state => {
+      .addCase(superheroOperations.editSuperhero.pending, state => {
         state.isLoading = true;
       })
-      .addCase(superheroOperations.editSuperheroe.fulfilled, state => {
+      .addCase(superheroOperations.editSuperhero.fulfilled, (state, action) => {
+        state.hero = action.payload;
         state.isLoading = false;
       })
-      .addCase(superheroOperations.editSuperheroe.rejected, (state, action) => {
+      .addCase(superheroOperations.editSuperhero.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
       })
@@ -79,16 +74,33 @@ const superheroSlice = createSlice({
       .addCase(superheroOperations.removeSuperhero.pending, state => {
         state.isLoading = true;
       })
-      .addCase(superheroOperations.removeSuperhero.fulfilled, state => {
-        state.isLoading = false;
-      })
+      .addCase(
+        superheroOperations.removeSuperhero.fulfilled,
+        (state, action) => {
+          console.log(action.payload);
+          state.isLoading = false;
+        }
+      )
       .addCase(
         superheroOperations.removeSuperhero.rejected,
         (state, action) => {
           state.error = action.payload;
           state.isLoading = false;
         }
-      );
+      )
+      // Superhero/addImage======================================================
+      .addCase(superheroOperations.addNewImage.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(superheroOperations.addNewImage.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.hero.images.push(action.payload);
+        state.isLoading = false;
+      })
+      .addCase(superheroOperations.addNewImage.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      });
   },
 });
 

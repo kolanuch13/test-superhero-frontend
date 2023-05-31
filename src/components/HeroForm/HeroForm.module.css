@@ -1,0 +1,31 @@
+input,
+textarea {
+  border: none;
+  border-top: 1px solid black;
+  width: 100%;
+}
+
+input[type="text"] {
+  font-size: 25px;
+}
+
+textarea[type="text"] {
+  font-size: 25px;
+}
+
+.lastInput {
+  margin-bottom: 25px;
+}
+
+textarea {
+  resize: none;
+}
+
+.edditButton {
+  font-size: 40px;
+  font-weight: 600;
+  width: 100%;
+  border-top: 1px solid black;
+  justify-content: space-between;
+  padding-top: 10px;
+}

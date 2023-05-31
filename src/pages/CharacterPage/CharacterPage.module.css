@@ -1,0 +1,79 @@
+.characterWrapper {
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: 'Montserrat', monospace;
+  font-weight: 300;
+}
+
+.heading {
+  font-size: 40px;
+  padding: 20px 10px;
+}
+
+.headingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headingButtons {
+  display: flex;
+  gap: 5px;
+}
+
+.button {
+  display: flex;
+  background: none;
+  outline: none;
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.button:hover,
+.button:focus {
+  /* border: 1px solid white; */
+  background-color: #e4e3d8;
+}
+ 
+.realName {
+  font-size: 25px;
+}
+
+.description {
+  font-size: 25px;
+}
+
+.powers {
+  font-size: 25px;
+}
+
+table {
+  min-width: 100%;
+}
+
+th {
+  width: 200px;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  vertical-align: top;
+  text-align: left;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  border-top: 1px solid white;
+}
+
+@media screen and (max-width: 630px) {
+  .character {
+    padding-top: 280px;
+  }
+  th {
+    width: 10px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}
+

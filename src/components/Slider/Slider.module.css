@@ -1,0 +1,60 @@
+.slider {
+  display: flex;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.flexRow {
+  margin: 0;
+}
+
+.imageWrapper {
+  padding-left: 20px;
+}
+
+.mainImage {
+  height: 300px;
+  width: 500px;
+  object-fit: contain;
+}
+
+.secondaryImage {
+  height: 70px;
+  width: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 100px;
+  background-color: #ffffff20;
+}
+
+.list {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 630px) {
+  .slider {
+    flex-direction: column;
+  }
+
+  .flexRow {
+    margin-top: 20px;
+  }
+
+  .secondaryImage {
+    margin-right: 0;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+}
