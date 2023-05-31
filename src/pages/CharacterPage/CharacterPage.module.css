@@ -68,8 +68,9 @@ td {
 
 @media screen and (max-width: 630px) {
   .character {
-    padding-top: 280px;
+    padding-top: 700px;
   }
+  
   th {
     width: 10px;
     writing-mode: vertical-rl;

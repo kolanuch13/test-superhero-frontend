@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { superheroApi } from './service'
-const serverUrl = 'http://localhost:4000/api/superheroes';
+const serverUrl = 'https://test-superhero-backend.onrender.com/api/superheroes';
 
 
 axios.defaults.baseURL = serverUrl;
