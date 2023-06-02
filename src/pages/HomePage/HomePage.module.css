@@ -1,3 +1,42 @@
 .homePage {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  padding: 0;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.buttonLeft {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  background-position: -25px;
+  background-repeat: no-repeat;
+  transition: background-position 500ms linear;
+}
+
+.buttonRight {
+  background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  background-position: 25px;
+  background-repeat: no-repeat;
+  transition: background-position 500ms linear;
+}
+
+.buttonLeft:hover {
+  background-position: 0px;
+}
+
+.buttonRight:hover {
+  background-position: 0px;
+}
+
+@media screen and (max-width: 630px) {
+  .button {
+    width: 25px;
+  }
 }

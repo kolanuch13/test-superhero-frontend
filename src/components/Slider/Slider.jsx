@@ -20,15 +20,13 @@ export const Slider = ({id, images }) => {
       <div className={css.flexRow}>
         <ul className={css.list}>
           {images?.map((img, index) => (
-            <li key={index}>
-              <div className={css.imageWrapper}>
-                <img
-                  className={css.secondaryImage}
-                  src={img}
-                  onClick={() => handleClick(index)}
-                  alt="hero"
-                />
-              </div>
+            <li key={index} className={css.imageWrapper}>
+              <img
+                className={css.secondaryImage}
+                src={img}
+                onClick={() => handleClick(index)}
+                alt="hero"
+              />
             </li>
           ))}
           <li>

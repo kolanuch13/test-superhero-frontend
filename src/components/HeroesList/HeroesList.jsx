@@ -1,37 +1,16 @@
-import { HeroItem } from 'components/HeroItem/HeroItem';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getSuperheroes } from 'redux/superheroes/operations';
-import { getSuperheroesList, getIsLoading } from 'redux/superheroes/selectors';
 import css from './HeroesList.module.css';
 import clsx from 'clsx';
+import { HeroItem } from 'components/HeroItem/HeroItem';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getIsLoading } from 'redux/superheroes/selectors';
 import { Link } from 'react-router-dom';
 import { Modal } from 'components/Modal/Modal';
 import { ModalCreate } from 'components/Modal/ModalCreate';
 
-export const HeroesList = () => {
-  const dispatch = useDispatch();
-  const superheroes = useSelector(getSuperheroesList);
+export const HeroesList = ({superheroes}) => {
   const isLoading = useSelector(getIsLoading);
-  const [page, setPage] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    dispatch(getSuperheroes([page, 6]));
-  }, [page]);
-
-  const nextPage = () => {
-    setPage(page + 1);
-  };
-
-  const prevPage = () => {
-    if (page !== 0) {
-      setPage(page - 1);
-    } else {
-      console.log('minimum');
-    }
-  };
 
   const path = id => {
     return `/character/${id}`;
@@ -44,13 +23,6 @@ export const HeroesList = () => {
 
   return (
     <div className={css.mainWrapper}>
-      <button
-        type="button"
-        onClick={prevPage}
-        className={clsx(css.button, css.buttonLeft)}
-      >
-        ❬
-      </button>
       {!isLoading ? (
         <ul className={css.list}>
           {superheroes.map(hero => (
@@ -73,13 +45,6 @@ export const HeroesList = () => {
       ) : (
         <></>
       )}
-      <button
-        type="button"
-        onClick={nextPage}
-        className={clsx(css.button, css.buttonRight)}
-      >
-        ❭
-      </button>
       <Modal
         open={isOpen}
         onClose={() => setIsOpen(false)}

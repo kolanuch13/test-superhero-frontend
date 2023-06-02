@@ -35,9 +35,9 @@ export const CharacterPage = () => {
   };
 
   return (
+      <Container>
     <main className={css.character}>
       {hero !== null && (
-        <Container>
           <div className={css.characterWrapper}>
             <Slider id={params.id} images={hero?.images} />
             <div className={css.headingWrapper}>
@@ -95,7 +95,6 @@ export const CharacterPage = () => {
               </tbody>
             </table>
           </div>
-        </Container>
       )}
       <Modal open={isOpen} onClose={() => setIsOpen(false)} name={modalType}>
         {modalType === 'Edit page' ? (
@@ -105,5 +104,6 @@ export const CharacterPage = () => {
         )}
       </Modal>
     </main>
+  </Container>
   );
 };

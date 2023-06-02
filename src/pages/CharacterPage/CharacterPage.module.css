@@ -4,6 +4,7 @@
   padding-right: 30px;
   font-family: 'Montserrat', monospace;
   font-weight: 300;
+  width: 100%;
 }
 
 .heading {
@@ -68,11 +69,13 @@ td {
 
 @media screen and (max-width: 630px) {
   .character {
-    padding-top: 700px;
+    margin-top: 420px;
   }
   
   th {
     width: 10px;
+    writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     text-orientation: mixed;
   }
