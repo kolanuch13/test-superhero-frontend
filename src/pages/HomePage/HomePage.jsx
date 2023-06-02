@@ -2,7 +2,7 @@ import css from './HomePage.module.css';
 import clsx from 'clsx';
 import { HeroesList } from 'components/HeroesList/HeroesList';
 import { Container } from 'components/Container/Container';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSuperheroes } from 'redux/superheroes/operations';
 import { getSuperheroesList } from 'redux/superheroes/selectors';
