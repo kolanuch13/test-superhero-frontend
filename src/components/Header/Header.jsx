@@ -9,7 +9,6 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const handleAccess = () => {
-    console.log('click');
     setIsOpen(true);
   };
   return (

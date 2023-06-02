@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSuperheroes } from 'redux/superheroes/operations';
 import { getSuperheroesList } from 'redux/superheroes/selectors';
 
-
 export const HomePage = () => {
   const [page, setPage] = useState(0);
   const dispatch = useDispatch();
@@ -21,12 +20,12 @@ export const HomePage = () => {
     if (page !== 0) {
       setPage(page - 1);
     } else {
-      console.log('minimum');
     }
   };
 
   useEffect(() => {
     dispatch(getSuperheroes([page, 6]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (
@@ -40,7 +39,7 @@ export const HomePage = () => {
         >
           ❬
         </button>
-         <HeroesList superheroes={superheroes} />
+        <HeroesList superheroes={superheroes} />
         <button
           type="button"
           onClick={nextPage}

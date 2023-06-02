@@ -1,5 +1,4 @@
 import css from './HeroesList.module.css';
-import clsx from 'clsx';
 import { HeroItem } from 'components/HeroItem/HeroItem';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -18,7 +17,6 @@ export const HeroesList = ({superheroes}) => {
   };
 
   const handleAddHero = () => {
-    console.log('click');
     setIsOpen(true);
   };
 

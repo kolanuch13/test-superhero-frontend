@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { editSuperheroe } from 'redux/superheroes/operations';
 import css from './ModalAccess.module.css';
 
 export const ModalAccess = () => {
@@ -7,7 +6,6 @@ export const ModalAccess = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(code);
     localStorage.setItem('innerKey', `${code}`);
   };
   return (

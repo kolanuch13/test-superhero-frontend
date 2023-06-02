@@ -5,7 +5,7 @@ const initialState = {
   hero: null,
   superheroesList: [],
   isLoading: false,
-  error: null
+  error: null,
 };
 
 const superheroSlice = createSlice({
@@ -74,13 +74,9 @@ const superheroSlice = createSlice({
       .addCase(superheroOperations.removeSuperhero.pending, state => {
         state.isLoading = true;
       })
-      .addCase(
-        superheroOperations.removeSuperhero.fulfilled,
-        (state, action) => {
-          console.log(action.payload);
-          state.isLoading = false;
-        }
-      )
+      .addCase(superheroOperations.removeSuperhero.fulfilled, state => {
+        state.isLoading = false;
+      })
       .addCase(
         superheroOperations.removeSuperhero.rejected,
         (state, action) => {
@@ -93,7 +89,6 @@ const superheroSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(superheroOperations.addNewImage.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.hero.images.push(action.payload);
         state.isLoading = false;
       })

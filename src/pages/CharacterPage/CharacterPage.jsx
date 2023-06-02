@@ -5,39 +5,38 @@ import { IoPencil, IoTrashBinOutline } from 'react-icons/io5';
 import { getSuperhero } from 'redux/superheroes/selectors';
 import { getOneSuperhero } from 'redux/superheroes/operations';
 import { Slider } from 'components/Slider/Slider';
-import { Container } from 'components/Container/Container';  
+import { Container } from 'components/Container/Container';
 import { Modal } from 'components/Modal/Modal';
 import { ModalEdit } from 'components/Modal/ModalEdit';
 import css from './CharacterPage.module.css';
 import { ModalDelete } from 'components/Modal/ModalDelete';
 
 export const CharacterPage = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [modalType, setModalType] = useState('')
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalType, setModalType] = useState('');
   const params = useParams();
   const dispatch = useDispatch();
   const hero = useSelector(getSuperhero);
 
   useEffect(() => {
     dispatch(getOneSuperhero(params.id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const handleEdit = () => {
-    setIsOpen(true)
-    setModalType('Edit page')
-    console.log('handleEdit');
+    setIsOpen(true);
+    setModalType('Edit page');
   };
 
   const handleDelete = () => {
-    setIsOpen(true)
-    setModalType('Delete page')
-    console.log('handleDelete');
+    setIsOpen(true);
+    setModalType('Delete page');
   };
 
   return (
-      <Container>
-    <main className={css.character}>
-      {hero !== null && (
+    <Container>
+      <main className={css.character}>
+        {hero !== null && (
           <div className={css.characterWrapper}>
             <Slider id={params.id} images={hero?.images} />
             <div className={css.headingWrapper}>
@@ -95,15 +94,15 @@ export const CharacterPage = () => {
               </tbody>
             </table>
           </div>
-      )}
-      <Modal open={isOpen} onClose={() => setIsOpen(false)} name={modalType}>
-        {modalType === 'Edit page' ? (
-          <ModalEdit hero={hero} closeModal={() => setIsOpen(false)} />
-        ) : (
-          <ModalDelete hero={hero} closeModal={() => setIsOpen(false)} />
         )}
-      </Modal>
-    </main>
-  </Container>
+        <Modal open={isOpen} onClose={() => setIsOpen(false)} name={modalType}>
+          {modalType === 'Edit page' ? (
+            <ModalEdit hero={hero} closeModal={() => setIsOpen(false)} />
+          ) : (
+            <ModalDelete hero={hero} closeModal={() => setIsOpen(false)} />
+          )}
+        </Modal>
+      </main>
+    </Container>
   );
 };
