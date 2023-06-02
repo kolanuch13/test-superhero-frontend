@@ -2,10 +2,11 @@ import css from './HomePage.module.css';
 import clsx from 'clsx';
 import { HeroesList } from 'components/HeroesList/HeroesList';
 import { Container } from 'components/Container/Container';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSuperheroes } from 'redux/superheroes/operations';
 import { getSuperheroesList } from 'redux/superheroes/selectors';
+import { useSwipeable } from 'react-swipeable';
 
 export const HomePage = () => {
   const [page, setPage] = useState(0);
@@ -23,6 +24,11 @@ export const HomePage = () => {
     }
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setPage(page + 1),
+    onSwipedRight: () => page !== 0 && setPage(page - 1),
+  });
+
   useEffect(() => {
     dispatch(getSuperheroes([page, 6]));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -30,15 +36,14 @@ export const HomePage = () => {
 
   return (
     <Container>
-      <main className={css.homePage}>
-        {' '}
-        <button
+      <main className={css.homePage} {...handlers}>
+        {page !== 0 && <button
           type="button"
           onClick={prevPage}
           className={clsx(css.button, css.buttonLeft)}
         >
           ❬
-        </button>
+        </button>}
         <HeroesList superheroes={superheroes} />
         <button
           type="button"

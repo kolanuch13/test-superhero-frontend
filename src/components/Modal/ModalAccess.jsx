@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import css from './ModalAccess.module.css';
+import { IoRepeat } from 'react-icons/io5';
 
 export const ModalAccess = () => {
   const [code, setCode] = useState('');
@@ -18,6 +19,10 @@ export const ModalAccess = () => {
           value={code}
           onChange={e => setCode(e.target.value)}
         />
+        <button className={css.edditButton} type="submit">
+          Submit
+          <IoRepeat size={40} color={'black'} />
+        </button>
       </form>
     </div>
   );
