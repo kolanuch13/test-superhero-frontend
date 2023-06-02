@@ -1,8 +1,8 @@
 {
-  "name": "test-superheroes-test",
+  "name": "test-superheroes-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kolanuch13.github.io/test-superheroes-test/",
+  "homepage": "https://kolanuch13.github.io/test-superheroes-frontend/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
