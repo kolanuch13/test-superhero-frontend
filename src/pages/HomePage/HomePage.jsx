@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSuperheroes } from 'redux/superheroes/operations';
 import { getSuperheroesList } from 'redux/superheroes/selectors';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 export const HomePage = () => {
   const [page, setPage] = useState(0);
@@ -40,7 +40,7 @@ export const HomePage = () => {
         >
           ❬
         </button>
-        <HeroesList superheroes={superheroes} />
+         <HeroesList superheroes={superheroes} />
         <button
           type="button"
           onClick={nextPage}

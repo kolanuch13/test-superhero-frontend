@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { superheroApi } from './service'
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const serverUrl = 'https://test-superhero-backend.onrender.com/api/superheroes';
 
 
@@ -35,8 +36,10 @@ export const addSuperhero = createAsyncThunk(
   async (hero, thunkAPI) => {
     try {
       const response = await superheroApi.addSuperhero(hero);
+      Notify.success('New hero added!');
       return response.data;
     } catch (error) {
+      Notify.failure('The problem is not in you :(');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -47,8 +50,10 @@ export const editSuperhero = createAsyncThunk(
   async (obj, thunkAPI) => {
     try {
       const response = await superheroApi.editSuperhero(obj.heroForm, obj.id);
+      Notify.success('The hero edited!');
       return response.data;
     } catch (error) {
+      Notify.failure('The problem is not in you :(');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -61,6 +66,7 @@ export const removeSuperhero = createAsyncThunk(
       const response = await superheroApi.removeSuperhero(id);
       return response.data;
     } catch (error) {
+      Notify.failure('The problem is not in you :(');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -71,8 +77,10 @@ export const addNewImage = createAsyncThunk(
   async (obj, thunkAPI) => {
     try {
       const { response } = await superheroApi.addImage(obj.formData, obj.id);
+      Notify.success('The heroe`s image added!');
       return response;
     } catch (error) {
+      Notify.failure('The problem is not in you :(');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

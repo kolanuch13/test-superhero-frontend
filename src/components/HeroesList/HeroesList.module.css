@@ -5,8 +5,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  /* width: 100%; */
-  /* height: calc(100vh - 80px); */
+  min-width: calc(100vw - 25px);
+}
+
+.loaderWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .list {
@@ -24,11 +31,19 @@
   transition: background-color 500ms linear;
 }
 
-.itemWrapper:hover {
+.list li:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
 @media screen and (max-width: 630px) {
+.mainWrapper {
+  min-width: 0;
+}
+
+.loaderWrapper {
+  min-width: calc(100vw - 50px);
+}
+
 .itemWrapper {
     width: calc((100vw - 50px) / 2);
     height: calc((100vh - 80px) / 3);

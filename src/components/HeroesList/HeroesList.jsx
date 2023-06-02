@@ -7,6 +7,7 @@ import { getIsLoading } from 'redux/superheroes/selectors';
 import { Link } from 'react-router-dom';
 import { Modal } from 'components/Modal/Modal';
 import { ModalCreate } from 'components/Modal/ModalCreate';
+import { Oval } from 'react-loader-spinner';
 
 export const HeroesList = ({superheroes}) => {
   const isLoading = useSelector(getIsLoading);
@@ -43,7 +44,20 @@ export const HeroesList = ({superheroes}) => {
           )}
         </ul>
       ) : (
-        <></>
+        <div className={css.loaderWrapper}>
+          <Oval
+            height={80}
+            width={80}
+            color="#000000"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            ariaLabel="oval-loading"
+            secondaryColor="#646464"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
+          />
+        </div>
       )}
       <Modal
         open={isOpen}

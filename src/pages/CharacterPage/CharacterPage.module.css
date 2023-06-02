@@ -5,6 +5,7 @@
   font-family: 'Montserrat', monospace;
   font-weight: 300;
   width: 100%;
+  min-width: 100vw;
 }
 
 .heading {
@@ -68,9 +69,6 @@ td {
 }
 
 @media screen and (max-width: 630px) {
-  .character {
-    margin-top: 420px;
-  }
   
   th {
     width: 10px;
