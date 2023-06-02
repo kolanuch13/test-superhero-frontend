@@ -2,7 +2,7 @@
   "name": "test-superheroes-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://kolanuch13.github.io/test-superheroes-test/",
+  "homepage": "https://kolanuch13.github.io/test-superheroes-test/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
