@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/superheroes-test/static/css/main.8a2e4855.css",
-    "main.js": "/superheroes-test/static/js/main.1f4a2372.js",
+    "main.css": "/superheroes-test/static/css/main.bcf17c60.css",
+    "main.js": "/superheroes-test/static/js/main.c434a01f.js",
     "index.html": "/superheroes-test/index.html",
-    "main.8a2e4855.css.map": "/superheroes-test/static/css/main.8a2e4855.css.map",
-    "main.1f4a2372.js.map": "/superheroes-test/static/js/main.1f4a2372.js.map"
+    "main.bcf17c60.css.map": "/superheroes-test/static/css/main.bcf17c60.css.map",
+    "main.c434a01f.js.map": "/superheroes-test/static/js/main.c434a01f.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a2e4855.css",
-    "static/js/main.1f4a2372.js"
+    "static/css/main.bcf17c60.css",
+    "static/js/main.c434a01f.js"
   ]
 }
