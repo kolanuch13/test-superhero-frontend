@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/test-superhero-frontend/static/css/main.265bd26e.css",
+    "main.css": "/test-superhero-frontend/static/css/main.99e9c53d.css",
     "main.js": "/test-superhero-frontend/static/js/main.9de849fd.js",
     "index.html": "/test-superhero-frontend/index.html",
-    "main.265bd26e.css.map": "/test-superhero-frontend/static/css/main.265bd26e.css.map",
+    "main.99e9c53d.css.map": "/test-superhero-frontend/static/css/main.99e9c53d.css.map",
     "main.9de849fd.js.map": "/test-superhero-frontend/static/js/main.9de849fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.265bd26e.css",
+    "static/css/main.99e9c53d.css",
     "static/js/main.9de849fd.js"
   ]
 }
