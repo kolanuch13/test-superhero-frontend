@@ -72,9 +72,8 @@ td {
   
   th {
     width: 10px;
-    writing-mode: tb-rl;
-    -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
     text-orientation: mixed;
   }
 }
